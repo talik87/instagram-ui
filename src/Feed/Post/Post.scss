@@ -1,0 +1,14 @@
+.Post{
+    border: 1px red solid;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+}
+.post-img{
+width: 250px;
+}
+.post-bottom{
+    display: flex;
+    justify-content: space-between;
+}
