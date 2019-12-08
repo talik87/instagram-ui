@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './Header.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome} from "@fortawesome/free-solid-svg-icons";
+import {Navbar,Nav} from 'react-bootstrap';
 
 class Header extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Instagram</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                    <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/profile" className="nav-link">Profile</Link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">
+            <FontAwesomeIcon icon={faHome} size="sm" />
+                Instagram
+                </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/profile">Profile</Link>
+                    <Link className="nav-link" to="/post/create">Create Post</Link>
+                </Nav>
+                <Nav className="mr-auto-b">
+                    <Link className="nav-link" to="/register">Register</Link>
+                    <Link className="nav-link" to="/login">Login</Link>
+                </Nav>
+            </Navbar.Collapse>
+    </Navbar>
         );
     }
 }
