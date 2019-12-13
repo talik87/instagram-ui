@@ -5,6 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faForward } from "@fortawesome/free-solid-svg-icons";
 import { Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 class Register extends Component {
 
     submit(values) {
@@ -73,4 +74,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);

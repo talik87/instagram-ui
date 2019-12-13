@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Login.scss'
 import loginModel from '../models/login.model';
 import config from '../config'
+import { withRouter } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
@@ -35,8 +36,9 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="Register">
+            <div className="Login">
                 <h2>Login</h2>
+                <hr />
                 <Formik initialValues={{ username: "", password: "" }}
                     validationSchema={loginModel}
                     onSubmit={this.submit.bind(this)}>
@@ -64,4 +66,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

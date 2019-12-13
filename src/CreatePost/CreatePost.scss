@@ -1,32 +1,40 @@
 .CreatePost {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
+}
+.react-tagsinput {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .react-tagsinput-tag {
-  background-color: rgb(12, 175, 240);
+  background-color: #0d8eda;
   border: none;
   color: black;
 }
-.upload-btn-wrapper{
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
+.upload-btn-wrapper {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
 }
-.upload-btn{
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
+.upload-btn {
+  border: 2px solid rgb(255, 255, 255);
+  color:white;
+  background-color: #0d8eda;
   padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
+  border-radius: 5px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
   font-size: 100px;
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
 }
-
+.btn-primary{
+  background-color:#0d8eda;
+}

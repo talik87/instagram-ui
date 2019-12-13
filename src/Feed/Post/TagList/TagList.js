@@ -3,9 +3,9 @@ import "./TagList.scss"
 class TagList extends Component {
     render() {
         return (
-            <div className="Tags">
+            <div className="TagList">
                 {this.props.tags.map((tag,index)=>{
-                    return <span className="tag" key={index}>#{tag}</span>
+                    return <div className="tag" key={index}>#{tag}</div>
                 })}
             </div>
         );
