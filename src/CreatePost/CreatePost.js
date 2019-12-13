@@ -15,30 +15,35 @@ class CreatePost extends React.Component {
         super()
         this.state = {
             tags: [],
-            tag: ''
+            // tag: ''
         }
     }
+    handleTagsChange(tags) {
+        this.setState({
+            tags: tags
+        });
+    }
     convertToFormData(values) {
-		const data = new FormData();
-		for (let key in values) {
-			Array.isArray(values[key])
-				? values[key].forEach(value => data.append(key + '[]', value))
-				: data.append(key, values[key]) ;
-		}
-		return data;
-	}
+        const data = new FormData();
+        for (let key in values) {
+            Array.isArray(values[key])
+                ? values[key].forEach(value => data.append(key + '[]', value))
+                : data.append(key, values[key]);
+        }
+        return data;
+    }
 
-	submit(values) {
-		const formData = this.convertToFormData(values);
-		fetch(config.apiUrl + '/api/posts', {
+    submit(values) {
+        const formData = this.convertToFormData(values);
+        fetch(config.apiUrl + '/api/posts', {
             method: 'POST',
             credentials: 'include',
-			body: formData
-		}).then(res => res.json())
+            body: formData
+        }).then(res => res.json())
             .then(post => console.log(post))
             .then(() => this.props.history.push('/'))
-			.catch(err => console.log(err));
-	}
+            .catch(err => console.log(err));
+    }
     // submit(values) {
     //     const data = new FormData();
     //     for (let key in values) {
@@ -54,12 +59,10 @@ class CreatePost extends React.Component {
     //         .then(() => this.props.history.push('/'))
     //         .catch(err => console.log(err));
     // }
-    handleChange(tags) {
-        this.setState({ tags })
-    }
-    handleChangeInput(tag) {
-        this.setState({ tag })
-    }
+
+    // handleChangeInput(tag) {
+    //     this.setState({ tag })
+    // }
 
     render() {
         return (
@@ -93,10 +96,14 @@ class CreatePost extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label>Tags:</label>
-                                <Field name="tags" className="form-control">
-                                    {() => (<TagsInput name="tags" value={this.state.tags} onChange={this.handleChange.bind(this)} inputValue={this.state.tag} onChangeInput={this.handleChangeInput.bind(this)} />)}
-                                </Field>
-                                <ErrorMessage name="tags" component="div" className="alert alert-danger" />
+                                <TagsInput value={this.state.tags}
+                                    onChange={(tags) => {
+                                        this.handleTagsChange(tags);
+                                        setFieldValue('tags', tags);
+                                    }}
+                                    className="tags-wrapper" />
+                                <ErrorMessage className="alert alert-danger mt-2" name="tags" component="div" />
+                                <div><sub>Press Enter after inserting a tag</sub></div>
                             </div>
                             <div className="row form-group d-flex justify-content-end">
                                 <Button type="submit">

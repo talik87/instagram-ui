@@ -3,16 +3,7 @@
   flex-direction: column;
   padding-left: 20px;
 }
-.react-tagsinput {
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.react-tagsinput-tag {
-  background-color: #0d8eda;
-  border: none;
-  color: black;
-}
+
 .upload-btn-wrapper {
   overflow: hidden;
   position: relative;
@@ -37,4 +28,43 @@
 }
 .btn-primary{
   background-color:#0d8eda;
+}
+
+
+.tags-wrapper {
+
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+
+  .react-tagsinput-input {
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+    margin: 7px;
+    &:hover, &:focus, &:active {
+      outline: 0;
+    }
+  }
+
+  .react-tagsinput-tag {
+    display: inline-block;
+    color: #ffffff;
+    background: #0d8eda;
+    margin: 5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: none;
+  }
+  // .react-tagsinput {
+  //   border: 1px solid #ced4da;
+  //   border-radius: 0.25rem;
+  //   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  // }
+  // .react-tagsinput-tag {
+  //   background-color: #0d8eda;
+  //   border: none;
+  //   color: black;
+  // }
 }

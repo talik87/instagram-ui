@@ -3,7 +3,7 @@ import TagList from './TagList/TagList';
 // import Moment from 'react-moment';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faHeart as heartFull} from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle, faHeart as heartFull} from "@fortawesome/free-solid-svg-icons";
 import './Post.scss';
 import config from '../../config';
 
@@ -35,7 +35,7 @@ class Post extends Component {
                             {this.formatDate(this.props.created)}
                         </div>
                         <div className="Post-user">
-                            <FontAwesomeIcon icon={faUser} size="lg" />
+                            <FontAwesomeIcon icon={faUserCircle} size="lg" className="Post-user-avatar"/>
                         </div>
                     </header>
                     <div className="Post-image">
@@ -52,7 +52,7 @@ class Post extends Component {
                     </div>
                     <div className="Post-content">
                         <h3 className="Post-title">{this.props.title}</h3>
-                        <TagList tags={this.props.tags} />
+                        <TagList tags={this.props.tags} className="Post-tags"/>
                     </div>
                     {/* <img className="post-img" src={config.apiUrl + '/' + this.props.image} alt="#" title={this.props.title}/>
                 <span className="post-likes">{this.props.likes}<FontAwesomeIcon icon={faHeart} size="lg" /></span>
